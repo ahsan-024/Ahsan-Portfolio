@@ -7,7 +7,7 @@ const person = {
   },
   role: "PHP/Laravel Developer",
   avatar: "/images/ahsan.png",
-  email: "mughalahsan718@gmail.com",
+  email: "outreach.ahsanmughal@gmail.com",
   location: "Asia/Karachi", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   displayLocation: "Lahore, PK.", // Display location for the user.
   languages: ["English", "Urdu"], // optional: Leave the array empty if you don't want to display languages
@@ -36,7 +36,7 @@ const social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/mughalahsan718",
+    link: "https://www.linkedin.com/in/muhammad-ahsan-mughal-0879b639b/",
   },
   {
     name: "Email",
@@ -46,7 +46,7 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/Ahasn-9",
+    link: "https://github.com/ahsan-024",
   },
 ];
 
