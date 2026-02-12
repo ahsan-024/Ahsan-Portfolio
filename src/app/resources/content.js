@@ -154,7 +154,7 @@ const about = {
         ],
       },
       {
-        company: "TetraLogics",
+        company: "Nwlogics",
         timeframe: "Jan 2025 - Apr 2025",
         role: "PHP/Laravel Intern",
         achievements: [
