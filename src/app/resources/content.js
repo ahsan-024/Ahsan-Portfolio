@@ -61,7 +61,7 @@ const home = {
     display: true,
     title: (
       <>
-        Currently at ― <strong className="ml-4">TetraLogics</strong>
+        Currently at ― <strong className="ml-4">TetraLogicx</strong>
       </>
     ),
     href: "https://tetralogicx.com/",
@@ -115,7 +115,7 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "TetraLogics",
+        company: "TetraLogicx",
         timeframe: "May 2025 - PRESENT",
         role: `${person.role}`,
         achievements: [
@@ -154,7 +154,7 @@ const about = {
         ],
       },
       {
-        company: "Nwlogics",
+        company: "TetraLogicx",
         timeframe: "Jan 2025 - Apr 2025",
         role: "PHP/Laravel Intern",
         achievements: [
@@ -194,6 +194,17 @@ and version control.
     display: true, // set to false to hide this section
     title: "Technical Skills",
     skills: [
+       {
+        title: "PHP",
+        description: (
+          <>
+            Strong expertise in developing scalable and secure backend systems using PHP, with a focus on clean architecture and optimized performance.
+
+          </>
+        ),
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
       {
         title: "Laravel",
         description: (
@@ -216,29 +227,6 @@ and version control.
         // optional: leave the array empty if you don't want to display images
         images: [],
       },
-      {
-        title: "CodeIgniter",
-        description: (
-          <>
-            Experienced in building robust web applications using the CodeIgniter
-            PHP framework.
-          </>
-        ),
-        // optional: leave the array empty if you don't want to display images
-        images: [],
-      },
-      {
-        title: "Perfex CRM",
-        description: (
-          <>
-            Experienced in using Perfex CRM for project management, note-taking, and personal
-            organization while collaborating with teams and following industry best practices for code organization.
-          </>
-        ),
-        // optional: leave the array empty if you don't want to display images
-        images: [],
-      },
-
       {
         title: "Bootstrap",
         description: (
