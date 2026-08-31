@@ -40,8 +40,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Link href={href} style={{ cursor: "pointer", textDecoration: "none" }}>
         <Carousel
           sizes="(max-width: 960px) 100vw, 960px"
-          aspectRatio="16 / 10"
-          objectFit="contain"
           images={images.map((image, index) => ({
             src: image,
             alt: `${title} — screenshot ${index + 1}`,
