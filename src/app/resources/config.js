@@ -37,9 +37,9 @@ const style = {
   theme: "system", // theme is not necessary when using ThemeProvider (default)
   neutral: "sand", // sand | gray | slate
   brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  accent: "green", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  accent: "cyan", // unified with brand for a single-accent palette
   solid: "color", // color | contrast
-  solidStyle: "plastic", // flat | plastic
+  solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
   surface: "translucent", // filled | translucent
   transition: "all", // all | micro | macro
@@ -48,24 +48,24 @@ const style = {
 
 const effects = {
   mask: {
-    cursor: true,
+    cursor: false,
     x: 50,
     y: 50,
     radius: 32,
   },
   gradient: {
     display: true,
-    opacity: 100,
+    opacity: 40,
     x: 50,
-    y: 60,
+    y: 0,
     width: 100,
-    height: 50,
+    height: 40,
     tilt: 0,
-    colorStart: "accent-background-strong",
+    colorStart: "brand-background-weak",
     colorEnd: "page-background",
   },
   dots: {
-    display: true,
+    display: false,
     opacity: 40,
     size: "2",
     color: "brand-background-strong",
@@ -78,7 +78,7 @@ const effects = {
     height: "0.5rem",
   },
   lines: {
-    display: true,
+    display: false,
     opacity: 100,
     color: "neutral-alpha-weak",
     size: "16",

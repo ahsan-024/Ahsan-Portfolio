@@ -4,6 +4,22 @@ publishedAt: "2026-08-15"
 summary: "A rebuild of the sales, reporting and approval core of a pharmaceutical ERP: report times cut from ~6s to sub-second on 2M+ row datasets via a trigger-synced rollup table, a 5-level territory RBAC model that closed a data-visibility leak, and a Doctor Activity requisition-to-payment system verified by 250 automated checks."
 images:
   - "/images/projects/Bristol/dashboard.png"
+tech:
+  - "PHP"
+  - "MySQL"
+  - "MySQL Triggers"
+  - "JavaScript"
+  - "Chart.js"
+  - "AJAX"
+metrics:
+  - value: "~6s → <1s"
+    label: "Report time on 2M+ row datasets"
+  - value: "2.0M → 700K"
+    label: "Rollup rows (258MB → 40MB, zero drift)"
+  - value: "42 → 23"
+    label: "Products visible after the RBAC fix"
+  - value: "250"
+    label: "Automated checks across 4 test suites"
 tag: "Bristol Mayer Biotech · Internal system"
 ---
 

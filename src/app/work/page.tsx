@@ -1,8 +1,8 @@
-import { Column } from "@/once-ui/components";
+import { Column, Heading, Text } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
-import { Projects } from "@/components/work/Projects";
+import { ProjectGrid } from "@/components/work/ProjectGrid";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -16,7 +16,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="l" gap="l" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -30,7 +30,14 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Projects />
+      <Column maxWidth="s" paddingX="l" gap="8" marginBottom="s">
+        <Heading variant="display-strong-s">Projects</Heading>
+        <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+          Backend-heavy PHP, Laravel and MySQL work — ERP reporting, multi-tenant
+          products and legacy modernisation.
+        </Text>
+      </Column>
+      <ProjectGrid />
     </Column>
   );
 }

@@ -23,6 +23,7 @@ interface ProjectCardProps {
   avatars: { src: string }[];
   link: string;
   tag?: string;
+  tech?: string[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -34,6 +35,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
   tag,
+  tech = [],
 }) => {
   return (
     <Column fillWidth gap="m">
@@ -74,6 +76,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}
               </Text>
+            )}
+            {tech.length > 0 && (
+              <Flex gap="8" wrap>
+                {tech.map((item) => (
+                  <Tag key={item} size="s" variant="neutral" label={item} />
+                ))}
+              </Flex>
             )}
             <Flex gap="24" wrap>
               {content?.trim() && (

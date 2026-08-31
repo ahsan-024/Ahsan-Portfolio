@@ -15,9 +15,9 @@ import { Projects } from "@/components/work/Projects";
 
 import { baseURL /* , routes */ } from "@/app/resources";
 import { home, about, person, social } from "@/app/resources/content";
+import { Meta, Schema } from "@/once-ui/modules";
 
 const emailLink = social.find((s) => s.name === "Email")?.link;
-import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -124,9 +124,37 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Column fillWidth gap="m" paddingX="l">
+          <Flex fillWidth horizontal="space-between" vertical="end" wrap gap="12">
+            <Heading as="h2" variant="display-strong-xs" wrap="balance">
+              Selected work
+            </Heading>
+            <Button
+              href="/work"
+              variant="tertiary"
+              size="s"
+              suffixIcon="chevronRight"
+              data-border="rounded"
+            >
+              All projects
+            </Button>
+          </Flex>
+        </Column>
       </RevealFx>
-      <Projects range={[2]} />
+      <Projects range={[1, 2]} />
+      <RevealFx>
+        <Flex fillWidth horizontal="center" paddingX="l">
+          <Button
+            href="/work"
+            variant="secondary"
+            size="m"
+            suffixIcon="chevronRight"
+            data-border="rounded"
+          >
+            See all projects
+          </Button>
+        </Flex>
+      </RevealFx>
     </Column>
   );
 }

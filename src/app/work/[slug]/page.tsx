@@ -1,7 +1,17 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Tag, Text } from "@/once-ui/components";
+import {
+  AvatarGroup,
+  Button,
+  Column,
+  Flex,
+  Grid,
+  Heading,
+  SmartImage,
+  Tag,
+  Text,
+} from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
@@ -104,8 +114,30 @@ export default async function Project({
           src={post.metadata.images[0]}
         />
       )}
+      {post.metadata.metrics?.length > 0 && (
+        <Grid
+          columns={String(Math.min(post.metadata.metrics.length, 4)) as "2" | "3" | "4"}
+          tabletColumns="2"
+          mobileColumns="2"
+          gap="1"
+          fillWidth
+          radius="m"
+          border="neutral-alpha-medium"
+          overflow="hidden"
+          background="neutral-alpha-weak"
+        >
+          {post.metadata.metrics.map((metric) => (
+            <Column key={metric.label} background="page" padding="20" gap="4">
+              <Heading variant="display-strong-xs">{metric.value}</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance">
+                {metric.label}
+              </Text>
+            </Column>
+          ))}
+        </Grid>
+      )}
       <Column as="article" maxWidth="xs" style={{ margin: "auto" }}>
-        <Flex gap="12" marginBottom="24" vertical="center">
+        <Flex gap="12" marginBottom="16" vertical="center" wrap>
           {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
           <Text variant="body-default-s" onBackground="neutral-weak">
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
@@ -114,6 +146,13 @@ export default async function Project({
             <Tag size="m" variant="neutral" label={post.metadata.tag} />
           )}
         </Flex>
+        {post.metadata.tech?.length > 0 && (
+          <Flex gap="8" wrap marginBottom="24">
+            {post.metadata.tech.map((item) => (
+              <Tag key={item} size="s" variant="neutral" label={item} />
+            ))}
+          </Flex>
+        )}
         <CustomMDX source={post.content} />
       </Column>
       <ScrollToHash />
