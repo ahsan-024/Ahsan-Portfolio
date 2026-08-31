@@ -1,5 +1,5 @@
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://sameerf.com";
+// Used for SEO in meta tags, schema, sitemap and OG image URLs
+const baseURL = "https://ahsan-ten.vercel.app";
 
 const routes = {
   "/": true,
@@ -11,9 +11,7 @@ const routes = {
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
-const protectedRoutes = {
-  "/work/sxsw-london": true,
-};
+const protectedRoutes = {};
 
 import { Urbanist as mainFont } from "next/font/google";
 import { Geist_Mono } from "next/font/google";

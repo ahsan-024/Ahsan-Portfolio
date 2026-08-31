@@ -1,0 +1,85 @@
+---
+title: "Pharmaceutical ERP — Sales Reporting, RBAC & Approvals"
+publishedAt: "2026-08-15"
+summary: "A rebuild of the sales, reporting and approval core of a pharmaceutical ERP: report times cut from ~6s to sub-second on 2M+ row datasets via a trigger-synced rollup table, a 5-level territory RBAC model that closed a data-visibility leak, and a Doctor Activity requisition-to-payment system verified by 250 automated checks."
+images: []
+---
+
+# Pharmaceutical ERP — Sales Reporting, RBAC & Approvals
+
+## Overview
+
+At Bristol Mayer Biotech Pakistan I work on a large legacy PHP/MySQL ERP used by a
+pharmaceutical field force. The work has centred on three things: making the sales
+reporting suite fast enough to actually use, making sure each role sees exactly the
+data it is entitled to, and replacing manual paper processes with auditable digital
+workflows.
+
+## Sales & Reporting suite — ~6s to sub-second
+
+I rebuilt the entire Sales & Reporting suite: Sales Report, Primary Sales Trend,
+Secondary Sales Trend, Primary-vs-Secondary Sales Trend, Distributor Trend, Monthly
+Target, Sales Target and Target-vs-Achievement.
+
+- **Trigger-synced day-grain rollup table** — the reporting source of truth went from
+  2.0M rows / 258MB to 700K rows / 40MB, kept in sync by database triggers and verified
+  for zero drift against the transactional tables.
+- **Index-aware query optimization** — queries rewritten around the indexes that exist
+  rather than hoping the planner cooperates.
+- **Result caching** for the repeat-heavy dashboard reads.
+- **Outcome:** report times dropped from roughly 6 seconds to sub-second on 2M+ row
+  datasets.
+
+Each report ships with multi-level drilldowns, KPI cards, charts, an A4 print layout
+and Excel export.
+
+## Role-based data scoping
+
+Every sales screen is enforced by a single data-scoping model:
+
+- A **5-level territory hierarchy** — MR / RSM / SM / BM / NSM — where each level sees
+  only the territories beneath it.
+- **Product-group locking**, so a manager only sees the products credited to their team.
+- A **dual-tenant ID pattern** for admin accounts that span multiple companies.
+
+This closed a real data-visibility leak: field managers had been able to see products
+not credited to their team. Verified on a test account, visible products went from 42
+to 23, and the result held consistently across all 4 role levels.
+
+## Doctor Activity Requisition & Approval
+
+Built end to end — a 5-step requisition wizard, an approvals inbox, a printable A4
+payment voucher and recorded payment.
+
+- A **status engine** governing the requisition lifecycle.
+- **Immutable line-item snapshots** written in a single transaction, so an approved
+  requisition never shifts under later catalogue edits.
+- **Capability-based access control** as one source of truth for page guards, API guards
+  and menu visibility.
+- A **database-lock critical section** closing a voucher-numbering race condition.
+- **Server-side amount re-validation**, blocking client-side tampering with totals.
+- Verified by **250 automated checks across 4 test suites**.
+
+## Organogram & Team Division
+
+The system's only write interface for assigning and unassigning a territory's full
+reporting chain, with region-scoped candidate pickers and trigger-backed hierarchy
+synchronization. Alongside it: divisional headcount analytics and 4 data-integrity
+reports — orphan reps, unassigned territories, missing divisions and cross-region
+managers.
+
+## Quotation Letter
+
+Replaced a manual document process with a transactional save over snapshotted price
+lines, so an issued quote never changes when the catalogue does. Includes
+auto-generated quotation numbers, live discount pricing, and a print engine using an
+isolated iframe so the letterhead and address block repeat correctly on every A4 page.
+
+## Technologies Used
+
+- **PHP / MySQL** — legacy application core and reporting layer
+- **MySQL triggers, stored procedures and transactions** — rollup synchronization and
+  atomic writes
+- **JavaScript / AJAX, Chart.js** — drilldowns, KPI cards and charts
+- **Automated regression suites** — race conditions, tampering and permission leaks
+- **Git / GitHub** — branching and code review workflow

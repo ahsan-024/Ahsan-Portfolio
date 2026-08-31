@@ -7,8 +7,9 @@ export default async function sitemap() {
   //   lastModified: post.metadata.publishedAt,
   // })); // Commented out - blog section disabled
 
+  // baseURL already includes the protocol (see resources/config.js)
   const works = getPosts(["src", "app", "work", "projects"]).map((post) => ({
-    url: `https://${baseURL}/work/${post.slug}`,
+    url: `${baseURL}/work/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));
 
@@ -17,7 +18,7 @@ export default async function sitemap() {
   );
 
   const routes = activeRoutes.map((route) => ({
-    url: `https://${baseURL}${route !== "/" ? route : ""}`,
+    url: `${baseURL}${route !== "/" ? route : ""}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 

@@ -1,0 +1,52 @@
+---
+title: "Almiranta Cap-Ex Plan"
+publishedAt: "2026-01-15"
+summary: "A production-grade LAAM-stack capital expenditure planning application with modular architecture — budgeting, tracking, dashboards and cron/export automation — delivering multi-view analysis and customizable UI logic across 10+ cost centres, with 25+ production issues resolved against live client data."
+images: []
+link: "https://www.capexplan.com/"
+---
+
+# Almiranta Cap-Ex Plan
+
+## Overview
+
+Cap-Ex Plan is a production capital expenditure planning platform used by finance teams
+to budget, track and report on capital spend. I maintained and extended it as a
+production-grade LAAM-stack application (Linux, Apache, Alpine.js, MySQL) with a modular
+architecture, working directly against live client data across 10+ cost centres.
+
+## Key Features
+
+- **CapEx budgeting and tracking** — capital requests moving through their approval and
+  spend lifecycle, with committed-versus-actual visibility.
+- **Analysis dashboards** — multi-view analysis so the same underlying spend can be read
+  by cost centre, by period or by category.
+- **Customizable UI logic** — per-client display rules layered over shared modules
+  instead of forked code.
+- **Cron and export automation** — scheduled jobs and generated exports replacing manual
+  end-of-period reporting steps.
+
+## Working Against Live Data
+
+Most of this work was maintenance engineering rather than greenfield building, which is
+its own discipline: **25+ production issues resolved** against live client data, each
+requiring a fix that could not corrupt existing records, could not require downtime, and
+had to be reasoned about from production symptoms rather than a clean reproduction.
+
+## My Role
+
+- Diagnosed and resolved production defects reported by finance users, tracing them from
+  symptom to root cause in a modular legacy codebase.
+- Extended CapEx workflows and analysis views without breaking existing cost-centre
+  configurations.
+- Owned deployment and release for the application — local, staging and production
+  environments, environment-variable and secrets configuration, and database migrations
+  run against live data.
+
+## Technologies Used
+
+- **PHP / Laravel** — application core and modular architecture
+- **MySQL** — schema design, migrations and reporting queries
+- **Alpine.js / JavaScript** — dashboard interactivity and dynamic views
+- **Apache / Linux** — production hosting environment
+- **Cron** — scheduled export and reporting automation
