@@ -2,7 +2,8 @@
 title: "Almiranta Cap-Ex Plan"
 publishedAt: "2026-01-15"
 summary: "A production-grade LAAM-stack capital expenditure planning application with modular architecture — budgeting, tracking, dashboards and cron/export automation — delivering multi-view analysis and customizable UI logic across 10+ cost centres, with 25+ production issues resolved against live client data."
-images: []
+images:
+  - "/images/projects/CapExPlan/almiranta.png"
 link: "https://www.capexplan.com/"
 ---
 
@@ -15,6 +16,8 @@ to budget, track and report on capital spend. I maintained and extended it as a
 production-grade LAAM-stack application (Linux, Apache, Alpine.js, MySQL) with a modular
 architecture, working directly against live client data across 10+ cost centres.
 
+![image](/images/projects/CapExPlan/Administration-Organizational.webp)
+
 ## Key Features
 
 - **CapEx budgeting and tracking** — capital requests moving through their approval and
@@ -25,6 +28,14 @@ architecture, working directly against live client data across 10+ cost centres.
   instead of forked code.
 - **Cron and export automation** — scheduled jobs and generated exports replacing manual
   end-of-period reporting steps.
+- **Organizational structure builder** — a drag-and-zoom chart defining the head office
+  → sector → group → entity hierarchy that budgets are scoped and consolidated against,
+  shown above.
+- **Activity log and audit trail** — field-level before-and-after state for every change,
+  attributed to a named user with title, email and timestamp, and exportable to Excel,
+  PDF or print.
+
+![image](/images/projects/CapExPlan/activity-log-items-1.png)
 
 ## Working Against Live Data
 

@@ -2,7 +2,8 @@
 title: "Pharmaceutical ERP — Sales Reporting, RBAC & Approvals"
 publishedAt: "2026-08-15"
 summary: "A rebuild of the sales, reporting and approval core of a pharmaceutical ERP: report times cut from ~6s to sub-second on 2M+ row datasets via a trigger-synced rollup table, a 5-level territory RBAC model that closed a data-visibility leak, and a Doctor Activity requisition-to-payment system verified by 250 automated checks."
-images: []
+images:
+  - "/images/projects/Bristol/dashboard.png"
 ---
 
 # Pharmaceutical ERP — Sales Reporting, RBAC & Approvals
@@ -32,6 +33,23 @@ Target, Sales Target and Target-vs-Achievement.
 
 Each report ships with multi-level drilldowns, KPI cards, charts, an A4 print layout
 and Excel export.
+
+![image](/images/projects/Bristol/sales.png)
+
+The Sales Report above breaks the same underlying secondary-sales data down by
+territory, brick, chemist or product, with net-sales/sales/refund and units/value
+toggles, a product-group and distributor filter set, and print and Excel export on
+every view.
+
+## Incentive Leaderboard
+
+A territory- and group-level incentive view showing who earns how much over a chosen
+month range — field incentive totals, territories earning against the full field
+count, units the incentive was paid on, top earner and average — with a
+by-territory/by-group split, a donut and trend chart, and an explainer panel
+documenting exactly how each number is derived.
+
+![image](/images/projects/Bristol/incentive.png)
 
 ## Role-based data scoping
 
