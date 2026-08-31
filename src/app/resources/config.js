@@ -5,8 +5,6 @@ const routes = {
   "/": true,
   "/about": true,
   "/work": true,
-  // "/blog": true, // Commented out - blog section disabled
-  // "/gallery": true, // Commented out - gallery section disabled
 };
 
 // Enable password protection on selected routes
@@ -96,49 +94,5 @@ const display = {
   themeSwitcher: true,
 };
 
-const mailchimp = {
-  action:
-    "https://gmail.us7.list-manage.com/subscribe/post?u=a25fe3df2b0fb2b8f228e87fc&amp;id=0c5ecd3ec0&amp;f_id=00768be0f0",
-  effects: {
-    mask: {
-      cursor: true,
-      x: 50,
-      y: 0,
-      radius: 100,
-    },
-    gradient: {
-      display: true,
-      opacity: 90,
-      x: 50,
-      y: 0,
-      width: 50,
-      height: 50,
-      tilt: 0,
-      colorStart: "accent-background-strong",
-      colorEnd: "static-transparent",
-    },
-    dots: {
-      display: true,
-      opacity: 20,
-      size: "2",
-      color: "brand-on-background-weak",
-    },
-    grid: {
-      display: false,
-      opacity: 100,
-      color: "neutral-alpha-medium",
-      width: "1rem",
-      height: "1rem",
-    },
-    lines: {
-      display: false,
-      opacity: 100,
-      color: "neutral-alpha-medium",
-      size: "16",
-      thickness: 1,
-      angle: 45,
-    },
-  },
-};
 
-export { routes, protectedRoutes, effects, style, display, mailchimp, baseURL, font };
+export { routes, protectedRoutes, effects, style, display, baseURL, font };

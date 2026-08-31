@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
-import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
+import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Tag, Text } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
@@ -37,7 +37,9 @@ export async function generateMetadata({
     baseURL: baseURL,
     image: post.metadata.image
       ? `${baseURL}${post.metadata.image}`
-      : `${baseURL}/og?title=${post.metadata.title}`,
+      : post.metadata.images?.[0]
+        ? `${baseURL}${post.metadata.images[0]}`
+        : `${baseURL}/og?title=${post.metadata.title}`,
     path: `${work.path}/${post.slug}`,
   });
 }
@@ -96,9 +98,10 @@ export default async function Project({
       {post.metadata.images.length > 0 && (
         <SmartImage
           priority
-          aspectRatio="16 / 9"
+          aspectRatio="16 / 10"
+          objectFit="contain"
           radius="m"
-          alt="image"
+          alt={`${post.metadata.title} — screenshot`}
           src={post.metadata.images[0]}
         />
       )}
@@ -108,6 +111,9 @@ export default async function Project({
           <Text variant="body-default-s" onBackground="neutral-weak">
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>
+          {post.metadata.tag && (
+            <Tag size="m" variant="neutral" label={post.metadata.tag} />
+          )}
         </Flex>
         <CustomMDX source={post.content} />
       </Column>

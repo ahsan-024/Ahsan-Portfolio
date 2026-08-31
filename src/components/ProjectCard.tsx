@@ -3,6 +3,7 @@
 import {
   AvatarGroup,
   Carousel,
+  Tag,
   Column,
   Flex,
   Heading,
@@ -21,6 +22,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  tag?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -31,17 +33,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  tag,
 }) => {
   return (
     <Column fillWidth gap="m">
       <Link href={href} style={{ cursor: "pointer", textDecoration: "none" }}>
         <Carousel
           sizes="(max-width: 960px) 100vw, 960px"
-          images={images.map((image) => ({
+          aspectRatio="16 / 10"
+          objectFit="contain"
+          images={images.map((image, index) => ({
             src: image,
-          alt: title,
-        }))}
-      />
+            alt: `${title} — screenshot ${index + 1}`,
+          }))}
+        />
       </Link>
 
       <Flex
@@ -59,9 +64,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </Heading>
           </Flex>
         )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
+        {(avatars?.length > 0 || tag || description?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
+            {(avatars?.length > 0 || tag) && (
+              <Flex gap="12" vertical="center" wrap>
+                {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
+                {tag && <Tag size="m" variant="neutral" label={tag} />}
+              </Flex>
+            )}
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}

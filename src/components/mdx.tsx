@@ -56,6 +56,7 @@ function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) 
       enlarge
       radius="m"
       aspectRatio="16 / 9"
+      objectFit="contain"
       border="neutral-alpha-medium"
       sizes="(max-width: 960px) 100vw, 960px"
       alt={alt}

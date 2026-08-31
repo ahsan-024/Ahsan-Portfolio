@@ -16,7 +16,6 @@ import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React from "react";
 import { Meta, Schema } from "@/once-ui/modules";
-import AboutGallery from "@/components/about/AboutGallery";
 import Link from "next/link";
 
 export async function generateMetadata() {
@@ -192,7 +191,6 @@ export default function About() {
             </Column>
           )}
 
-          {about.gallery.display && <AboutGallery />}
 
           {about.work.display && (
             <>

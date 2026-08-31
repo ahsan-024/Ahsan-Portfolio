@@ -22,7 +22,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   experimental: {
     optimizePackageImports: ["react-icons", "@floating-ui/react-dom"],
   },

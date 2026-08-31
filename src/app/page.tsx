@@ -14,9 +14,9 @@ import {
 import { Projects } from "@/components/work/Projects";
 
 import { baseURL /* , routes */ } from "@/app/resources";
-import { home, about, person, newsletter } from "@/app/resources/content";
-import { Mailchimp } from "@/components";
-// import { Posts } from "@/components/blog/Posts"; // Commented out - blog section disabled
+import { home, about, person, social } from "@/app/resources/content";
+
+const emailLink = social.find((s) => s.name === "Email")?.link;
 import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
@@ -79,45 +79,54 @@ export default function Home() {
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              arrowIcon
-            >
-              <Flex gap="8" vertical="center">
-                {about.avatar.display && (
-                  <Avatar
-                    style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Flex>
-            </Button>
+            <Flex gap="12" vertical="center" wrap>
+              <Button
+                id="about"
+                data-border="rounded"
+                href={about.path}
+                variant="secondary"
+                size="m"
+                arrowIcon
+              >
+                <Flex gap="8" vertical="center">
+                  {about.avatar.display && (
+                    <Avatar
+                      style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                      src={person.avatar}
+                      size="m"
+                    />
+                  )}
+                  {about.title}
+                </Flex>
+              </Button>
+              <Button
+                data-border="rounded"
+                href={about.calendar.link}
+                variant="tertiary"
+                size="m"
+                prefixIcon="document"
+              >
+                Download CV
+              </Button>
+              {emailLink && (
+                <Button
+                  data-border="rounded"
+                  href={emailLink}
+                  variant="tertiary"
+                  size="m"
+                  prefixIcon="email"
+                >
+                  Get in touch
+                </Button>
+              )}
+            </Flex>
           </RevealFx>
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
       </RevealFx>
-      {/* {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )} */}
       <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );
 }

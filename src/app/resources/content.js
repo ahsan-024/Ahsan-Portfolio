@@ -13,25 +13,13 @@ const person = {
   languages: ["English", "Urdu"], // optional: Leave the array empty if you don't want to display languages
 };
 
-const newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}&apos;s Newsletter</>,
-  description: (
-    <>
-      I occasionally write about PHP/Laravel development, MySQL performance, and
-      what it actually takes to modernise large legacy systems without breaking
-      the business running on them.
-    </>
-  ),
-};
-
 const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
   {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://instagram.com/ahsan__024",
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/ahsan-024",
   },
   {
     name: "LinkedIn",
@@ -44,9 +32,9 @@ const social = [
     link: `mailto:${person.email}?subject=Project%20Inquiry&body=Hi%20Ahsan,%0D%0A%0D%0AI'm:%20[Your%20Name]%0D%0AI’m%20looking%20for:%20[Brief%20Project%20Description]%0D%0ABudget%20Range:%20[Your%20Budget]%0D%0A%0D%0ALooking%20forward%20to%20your%20reply.`,
   },
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/ahsan-024",
+    name: "Instagram",
+    icon: "instagram",
+    link: "https://instagram.com/ahsan__024",
   },
 ];
 
@@ -54,9 +42,9 @@ const home = {
   path: "/",
   image: "/images/og/Ahsan.jpeg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
+  title: `${person.name} — Software Engineer (PHP / Laravel / MySQL)`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>👋🏼 Ahsan Mughal</>,
+  headline: <>I make slow, sprawling systems fast and safe to change</>,
   featured: {
     display: true,
     title: (
@@ -83,9 +71,6 @@ const about = {
   tableOfContent: {
     display: true,
     subItems: false,
-  },
-  gallery: {
-    display: false, // Gallery section disabled
   },
   avatar: {
     display: true,
@@ -374,65 +359,5 @@ const work = {
   // All projects will be listed on the /home and /work routes
 };
 
-// const gallery = {
-//   path: "/gallery",
-//   label: "Gallery",
-//   title: `Photo gallery ― ${person.name}`,
-//   description: `A photo collection by ${person.name}`,
-//   // Images by https://lorant.one
-//   // These are placeholder images, replace with your own
-//   images: [
-//     {
-//       src: "/images/gallery/about/LUMS-open-day.png",
-//       alt: "Ahsan Mughal at LUMS Open Day",
-//       orientation: "vertical",
-//     },
-//     {
-//       src: "/images/gallery/about/imrtls00-speak-notion.png",
-//       alt: "Sameer Faisal speaking about Notion",
-//       orientation: "horizontal",
-//     },
-//     {
-//       src: "/images/gallery/about/cbtl-meetup.png",
-//       alt: "Notion Workshop at CBTL",
-//       orientation: "horizontal",
-//     },
-//     {
-//       src: "/images/gallery/about/imrtls00-speak-tech.png",
-//       alt: "Sameer Faisal speaking at Tech Conference",
-//       orientation: "vertical",
-//     },
-//     {
-//       src: "/images/gallery/about/notion-com.png",
-//       alt: "Notion COMSATS - Community",
-//       orientation: "vertical",
-//     },
-//     {
-//       src: "/images/gallery/about/notion-ninjas.png",
-//       alt: "image",
-//       orientation: "horizontal",
-//     },
-//     {
-//       src: "/images/gallery/about/devfest22-community.png",
-//       alt: "Sameer attending GDG Lahore DevFest22",
-//       orientation: "horizontal",
-//     },
-//     {
-//       src: "/images/gallery/about/imrtls00-speak-pro.png",
-//       alt: "Sameer Faisal speaking about Prototyping",
-//       orientation: "vertical",
-//     },
-//     {
-//       src: "/images/gallery/about/attendee-tech.png",
-//       alt: "Sameer Faisal attending Tech Conference",
-//       orientation: "vertical",
-//     },
-//     {
-//       src: "/images/gallery/about/app-devfest.png",
-//       alt: "Sameer receiving sovenier from GDG Cloud Lahore",
-//       orientation: "horizontal",
-//     },
-//   ],
-// };
 
-export { person, social, newsletter, home, about, /* blog, */ work, /* gallery */ };
+export { person, social, home, about, work };
