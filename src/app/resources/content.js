@@ -6,7 +6,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Software Engineer — PHP / Laravel / MySQL",
-  avatar: "/images/ahsan.png",
+  avatar: "/images/avatar.jpg",
   email: "mughalahsan718@gmail.com",
   location: "Asia/Karachi", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   displayLocation: "Lahore, PK.", // Display location for the user.
@@ -40,7 +40,7 @@ const social = [
 
 const home = {
   path: "/",
-  image: "/images/og/Ahsan.jpeg",
+  image: "/images/avatar.jpg",
   label: "Home",
   title: `${person.name} — Software Engineer (PHP / Laravel / MySQL)`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
