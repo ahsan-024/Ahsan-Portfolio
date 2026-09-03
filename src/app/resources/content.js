@@ -19,12 +19,12 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/ahsan-024",
+    link: "https://github.com/ahsanidrees11",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/muhammad-ahsan-mughal/",
+    link: "https://www.linkedin.com/in/ahsanidrees11",
   },
   {
     name: "Email",
